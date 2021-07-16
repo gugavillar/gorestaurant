@@ -5,7 +5,7 @@
       "name": "Ao molho",
       "description": "Macarrão ao molho branco, fughi e cheiro verde das montanhas",
       "price": "19.90",
-      "available": false,
+      "available": true,
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png"
     },
     {
@@ -13,7 +13,7 @@
       "name": "Veggie",
       "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
       "price": "22.90",
-      "available": true,
+      "available": false,
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png"
     },
     {
@@ -23,6 +23,22 @@
       "price": "25.90",
       "available": true,
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png"
+    },
+    {
+      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "name": "Moda Argentina",
+      "price": "19.20",
+      "description": "teste",
+      "available": true,
+      "id": 4
+    },
+    {
+      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
+      "name": "Moda Espanhola",
+      "price": "15.00",
+      "description": "teste",
+      "available": true,
+      "id": 5
     }
   ]
 }
