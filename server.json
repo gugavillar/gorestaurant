@@ -35,7 +35,7 @@
     {
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png",
       "name": "Moda Espanhola",
-      "price": "15.00",
+      "price": "20.00",
       "description": "teste",
       "available": true,
       "id": 5
