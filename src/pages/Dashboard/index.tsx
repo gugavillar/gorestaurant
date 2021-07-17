@@ -30,8 +30,8 @@ export function Dashboard() {
    async function handleAddFood(food: FoodDatabase) {
       const foodsUpdated = [...foods];
       try {
-         const response = await api.post('/foods', { ...food, available: true });
-         setFoods([...foodsUpdated, response.data]);
+         const response: Foods = await api.post('/foods', { ...food, available: true }).then(response => response.data);
+         setFoods([...foodsUpdated, response]);
       } catch (err) {
          console.log(err);
       }
@@ -40,11 +40,11 @@ export function Dashboard() {
    async function handleUpdateFood(food: FoodDatabase) {
       try {
          const foodsToUpdated = [...foods];
-         const response = await api.put(`/foods/${editingFood.id}`, {
+         const response: Foods = await api.put(`/foods/${editingFood.id}`, {
             ...editingFood,
             ...food
-         });
-         const foodsUpdated = foodsToUpdated.map(food => food.id !== response.data.id ? food : response.data);
+         }).then(response => response.data);
+         const foodsUpdated = foodsToUpdated.map(food => food.id !== response.id ? food : response);
          setFoods(foodsUpdated);
       } catch (err) {
          console.log(err);
