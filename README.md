@@ -1,8 +1,8 @@
 # gorestaurant
 
-![Imagem inicial da aplicação](/assets/inicio.png)
+![Imagem inicial da aplicação](/src/assets/inicio.png)
 
-![Imagem do modal da aplicação](/assets/modal.png)
+![Imagem do modal da aplicação](/src/assets/modal.png)
 
 ## Tecnologias
 
