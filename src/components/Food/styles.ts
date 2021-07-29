@@ -53,6 +53,50 @@ export const Container = styled.div<FoodContainerProps>`
     }
   }
 
+  section.footer-user {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    padding: 20px 30px;
+    background: #e4e4eb;
+    border-radius: 0px 0px 8px 8px;
+
+    div.icon-container {
+      display: flex;
+      gap: 15px;
+
+      span {
+        display: flex;
+        align-items: center;
+        color: #3d3d4d;
+        font-size: 24px;
+
+        &.disabled {
+          opacity: 0.3;
+        }
+      }
+
+      button {
+        background: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        border: none;
+        transition: 0.1s;
+
+        svg {
+          color: #3d3d4d;
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
   section.footer {
     display: flex;
     justify-content: space-between;

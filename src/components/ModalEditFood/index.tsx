@@ -5,6 +5,7 @@ import { Form } from "./styles";
 import { Modal } from "../Modal";
 import { Input } from "../Input";
 import { FormHandles } from "@unform/core";
+import { useFood } from "../../hooks/useFood";
 
 interface FoodVariable {
    name: string,
@@ -17,15 +18,14 @@ interface FoodVariable {
 interface ModalEditFoodProps {
    isOpen: boolean;
    setIsOpen: () => void;
-   handleUpdateFood: (food: FoodVariable) => void;
-   editingFood: FoodVariable;
 }
 
-export function ModalEditFood({ isOpen, setIsOpen, handleUpdateFood, editingFood }: ModalEditFoodProps) {
+export function ModalEditFood({ isOpen, setIsOpen }: ModalEditFoodProps) {
    const formRef = createRef<FormHandles>();
+   const { updateFood, editingFood } = useFood();
 
    function handleSubmit(data: FoodVariable) {
-      handleUpdateFood(data);
+      updateFood(data);
       setIsOpen();
    }
 
