@@ -55,12 +55,22 @@ export const Container = styled.div<FoodContainerProps>`
 
   section.footer-user {
     display: flex;
-    justify-content: end;
     align-items: center;
-
     padding: 20px 30px;
     background: #e4e4eb;
     border-radius: 0px 0px 8px 8px;
+
+    div.button-remove {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly
+    }
+
+    div.icon-add {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     div.icon-container {
       display: flex;
@@ -96,6 +106,47 @@ export const Container = styled.div<FoodContainerProps>`
       }
     }
   }
+
+  section.footer-user {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    padding: 20px 30px;
+    background: #e4e4eb;
+    border-radius: 0px 0px 8px 8px;
+
+    div.icon-container {
+      display: flex;
+      gap: 15px;
+
+
+      button.icon-shopping {
+        display: flex;
+        align-items:center;
+        background: #fff;
+        padding: 10px;
+        border-radius: 8px;
+        display: flex;
+        border: none;
+        transition: 0.1s;
+        background-color: #39b100;
+        color: #fff;
+
+        svg {
+          color: #fff;
+          margin-left: 2px;
+        }
+
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.3;
+        }
+      }
+    }
+  }
+
+
 
   section.footer {
     display: flex;

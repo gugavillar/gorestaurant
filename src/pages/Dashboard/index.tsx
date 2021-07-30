@@ -1,4 +1,4 @@
-import { Header } from "../../components/Header";
+import { HeaderUser } from "../../components/HeaderUser";
 import { Food } from "../../components/Food";
 import { ModalAddFood } from "../../components/ModalAddFood";
 import { ModalEditFood } from "../../components/ModalEditFood";
@@ -15,7 +15,7 @@ export function Dashboard() {
    }
    return (
       <>
-         <Header openModal={handleOpenAddModal} />
+         <HeaderUser />
          <ModalAddFood
             isOpen={isAddModalOpen}
             setIsOpen={handleOpenAddModal}

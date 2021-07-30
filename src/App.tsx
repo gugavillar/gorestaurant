@@ -1,6 +1,6 @@
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
 import { FoodProvider } from './hooks/useFood';
+import { CartProvider } from './hooks/useCart';
 
 import { Routes } from './routes';
 import { BrowserRouter } from 'react-router-dom';
@@ -12,9 +12,11 @@ export function App() {
     <>
       <BrowserRouter>
         <FoodProvider>
-          <GlobalStyle />
-          <Routes />
-          <ToastContainer autoClose={2000} />
+          <CartProvider>
+            <GlobalStyle />
+            <Routes />
+            <ToastContainer autoClose={2000} />
+          </CartProvider>
         </FoodProvider>
       </BrowserRouter>
     </>
