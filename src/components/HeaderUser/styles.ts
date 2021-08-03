@@ -13,6 +13,9 @@ export const Container = styled.div`
     justify-content: space-between;
 
     nav {
+      display: flex;
+      align-items: center;
+      gap: 15px;
       div {
         a {
           text-decoration: none;
@@ -44,6 +47,16 @@ export const Container = styled.div`
           &:hover {
             filter: brightness(0.8);
           }
+        }
+      }
+      div.user{
+        display:grid;
+        justify-items: center;
+        cursor: pointer;
+        img {
+          clip-path: circle();
+          width: 50%;
+          margin-bottom: 5px;
         }
       }
     }

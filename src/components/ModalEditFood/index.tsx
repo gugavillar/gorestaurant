@@ -41,7 +41,7 @@ export function ModalEditFood({ isOpen, setIsOpen }: ModalEditFoodProps) {
             <Input name="name" placeholder="Ex: Moda Italiana" />
             <Input name="price" placeholder="Ex: 19.90" />
             <Input name="description" placeholder="Descrição" />
-            <button type="submit" data-testid="edit-food-button">
+            <button type="submit">
                <div className="text">Editar Prato</div>
                <div className="icon">
                   <FiCheckSquare size={24} />

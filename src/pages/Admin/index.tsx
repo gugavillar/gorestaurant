@@ -6,22 +6,22 @@ import { FoodsContainer } from "./styles";
 import { useFood } from "../../hooks/useFood";
 
 export function Admin() {
-   const { foods, isAddModalOpen, openAddModal, openEditModal, isEditModalOpen } = useFood();
+   const { foods, isAddFoodModalOpen, openAddFoodModal, openEditFoodModal, isEditFoodModalOpen } = useFood();
    function handleOpenAddModal() {
-      openAddModal();
+      openAddFoodModal();
    }
    function handleOpenEditModal() {
-      openEditModal();
+      openEditFoodModal();
    }
    return (
       <>
          <HeaderAdmin openModal={handleOpenAddModal} />
          <ModalAddFood
-            isOpen={isAddModalOpen}
+            isOpen={isAddFoodModalOpen}
             setIsOpen={handleOpenAddModal}
          />
          <ModalEditFood
-            isOpen={isEditModalOpen}
+            isOpen={isEditFoodModalOpen}
             setIsOpen={handleOpenEditModal}
          />
 

@@ -1,6 +1,7 @@
 import { ToastContainer } from 'react-toastify';
 import { FoodProvider } from './hooks/useFood';
 import { CartProvider } from './hooks/useCart';
+import { AuthProvider } from './hooks/useAuth';
 
 import { Routes } from './routes';
 import { BrowserRouter } from 'react-router-dom';
@@ -12,11 +13,13 @@ export function App() {
     <>
       <BrowserRouter>
         <FoodProvider>
-          <CartProvider>
-            <GlobalStyle />
-            <Routes />
-            <ToastContainer autoClose={2000} />
-          </CartProvider>
+          <AuthProvider>
+            <CartProvider>
+              <GlobalStyle />
+              <Routes />
+              <ToastContainer autoClose={3000} />
+            </CartProvider>
+          </AuthProvider>
         </FoodProvider>
       </BrowserRouter>
     </>

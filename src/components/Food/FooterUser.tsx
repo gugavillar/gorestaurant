@@ -71,6 +71,7 @@ export function FooterUser({ food }: FooterProps) {
                     <button
                         type="button"
                         className="icon-shopping"
+                        disabled={!food.available}
                         onClick={() => handleAddProduct(food.id)}>
                         Adicionar ao carrinho
                         <MdAddShoppingCart size={20} />

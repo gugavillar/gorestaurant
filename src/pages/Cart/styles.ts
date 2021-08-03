@@ -10,24 +10,36 @@ export const Container = styled.div`
 
     footer{
         margin-top: 30px;
-        display: flex;
-        justify-content:space-around;
-        align-items: center;
-        padding: 0 15px;
+        div.actions {
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            margin-top: 50px;
+            button {
+                background: #39b100;
+                color: #fff;
+                border: 0;
+                border-radius: 4px;
+                padding: 12px 20px;
+                font-weight: bold;
+                text-transform: uppercase;
+                transition: filter 0.2s;
 
-        button {
-            background: #39b100;
-            color: #fff;
-            border: 0;
-            border-radius: 4px;
-            padding: 12px 20px;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: filter 0.2s;
-
-            &:hover {
-                filter: brightness(0.9);
+                &:hover {
+                    filter: brightness(0.9);
+                }
             }
+        }
+        div.informations {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            div:nth-child(2) {
+                span, p {
+                    color: #000;
+                }
+            }
+
         }
     }
 `;

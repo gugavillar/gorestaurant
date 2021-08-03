@@ -73,6 +73,7 @@ export function CartProvider({ children }: CartProviderProps) {
                 });
             }
             setCart(updateCart);
+            toast.success('Produto adicionado ao carrinho');
         } catch (err) {
             toast.error(err.message);
         }
@@ -85,6 +86,7 @@ export function CartProvider({ children }: CartProviderProps) {
             if (productExist) {
                 const newCart = updateCart.filter(product => product.id !== productExist.id);
                 setCart(newCart);
+                toast.success('Produto removido do carrinho');
             } else {
                 throw Error();
             }
@@ -101,6 +103,11 @@ export function CartProvider({ children }: CartProviderProps) {
             const updateCart = [...cart];
             const productExist = updateCart.find(product => product.id === productId);
             if (productExist) {
+                if (amount > productExist.amount) {
+                    toast.success('Quantidade do produto foi aumentada');
+                } else {
+                    toast.success('Quantidade do produto foi diminuída');
+                }
                 productExist.amount = amount;
                 setCart(updateCart);
             } else {

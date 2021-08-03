@@ -3,6 +3,7 @@ import { MdDelete, MdAddCircleOutline, MdRemoveCircleOutline } from 'react-icons
 import { useCart } from '../../hooks/useCart';
 import { Container, ProductTable, Total } from './styles';
 import { HeaderUser } from '../../components/HeaderUser';
+import { useAuth } from '../../hooks/useAuth';
 
 interface Product {
     id: string;
@@ -16,6 +17,7 @@ interface Product {
 
 export function Cart() {
     const { cart, removeProduct, updateProductAmount } = useCart();
+    const { user, signInWithGoogle } = useAuth();
     const cartFormatted = cart.map(product => {
         return {
             id: product.id,
@@ -54,6 +56,12 @@ export function Cart() {
         removeProduct(productId);
     }
 
+    function handleSignInWithGoogle() {
+        if (!user) {
+            signInWithGoogle();
+        }
+    }
+
     return (
         <>
             <HeaderUser />
@@ -76,7 +84,7 @@ export function Cart() {
                                 </td>
                                 <td>
                                     <strong>{product.name}</strong>
-                                    <span>{product.price}</span>
+                                    <span>{product.priceFormatted}</span>
                                 </td>
                                 <td>
                                     <div>
@@ -115,15 +123,24 @@ export function Cart() {
                         ))}
                     </tbody>
                 </ProductTable>
-
                 <footer>
-                    <button type="button">
-                        Finalizar pedido
-                    </button>
-                    <Total>
-                        <span>TOTAL</span>
-                        <strong>{total}</strong>
-                    </Total>
+                    {/* <div className="informations">
+                        <div>
+                            <span>Texte</span>
+                        </div>
+                        <div>
+                            <span>Forma de pagamento</span>
+                        </div>
+                    </div> */}
+                    <div className="actions">
+                        <button onClick={handleSignInWithGoogle} type="button">
+                            Finalizar pedido
+                        </button>
+                        <Total>
+                            <span>TOTAL</span>
+                            <strong>{total}</strong>
+                        </Total>
+                    </div>
                 </footer>
             </Container>
         </>

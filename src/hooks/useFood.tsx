@@ -22,10 +22,10 @@ interface FoodContextData {
     updateFood: (food: FoodDatabase) => void;
     deleteFood: (id: string) => void;
     availableFood: (food: Foods) => void;
-    openAddModal: () => void;
-    openEditModal: () => void;
-    isAddModalOpen: boolean;
-    isEditModalOpen: boolean;
+    openAddFoodModal: () => void;
+    openEditFoodModal: () => void;
+    isAddFoodModalOpen: boolean;
+    isEditFoodModalOpen: boolean;
 }
 
 interface FoodFirebase {
@@ -38,7 +38,6 @@ interface FoodFirebase {
     }
 }
 
-
 interface FoodProviderProps {
     children: ReactNode;
 }
@@ -48,11 +47,8 @@ const FoodContext = createContext<FoodContextData>({} as FoodContextData);
 export function FoodProvider({ children }: FoodProviderProps) {
     const [foods, setFoods] = useState<Foods[]>([]);
     const [editingFood, setEditingFood] = useState<Foods>({} as Foods);
-    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-    const notify = (text: string) => toast.success(text, {
-        autoClose: 1500
-    });
+    const [isAddFoodModalOpen, setIsAddFoodModalOpen] = useState(false);
+    const [isEditFoodModalOpen, setIsEditFoodModalOpen] = useState(false);
 
     useEffect(() => {
         const foodRef = database.ref('foods');
@@ -80,7 +76,7 @@ export function FoodProvider({ children }: FoodProviderProps) {
         const newFood = { ...food, available: true };
         try {
             await database.ref('foods').push(newFood);
-            notify('Produto inserido');
+            toast.success('Produto inserido');
         } catch (err) {
             toast.error(err.message);
         }
@@ -91,7 +87,7 @@ export function FoodProvider({ children }: FoodProviderProps) {
             await database.ref(`foods/${editingFood.id}`).update({
                 ...food
             });
-            notify('Produto atualizado');
+            toast.success('Produto atualizado');
         } catch (err) {
             toast.error(err.message);
         }
@@ -100,7 +96,7 @@ export function FoodProvider({ children }: FoodProviderProps) {
     const deleteFood = async (id: string) => {
         try {
             await database.ref(`foods/${id}`).remove();
-            notify('Produto removido');
+            toast.success('Produto removido');
         } catch (err) {
             toast.error(err.message);
         }
@@ -112,27 +108,27 @@ export function FoodProvider({ children }: FoodProviderProps) {
                 available: !food.available
             });
             if (food.available) {
-                notify('Produto indisponível');
+                toast.success('Produto indisponível');
             } else {
-                notify('Produto disponível');
+                toast.success('Produto disponível');
             }
         } catch (err) {
             toast.error(err.message);
         }
     }
 
-    const openEditModal = () => {
-        setIsEditModalOpen(!isEditModalOpen);
+    const openEditFoodModal = () => {
+        setIsEditFoodModalOpen(!isEditFoodModalOpen);
     }
 
 
-    const openAddModal = () => {
-        setIsAddModalOpen(!isAddModalOpen);
+    const openAddFoodModal = () => {
+        setIsAddFoodModalOpen(!isAddFoodModalOpen);
     }
 
 
     return (
-        <FoodContext.Provider value={{ foods, addFood, updateFood, deleteFood, availableFood, openAddModal, openEditModal, editingFood, setEditingFood, isAddModalOpen, isEditModalOpen }}>
+        <FoodContext.Provider value={{ foods, addFood, updateFood, deleteFood, availableFood, openAddFoodModal, openEditFoodModal, editingFood, setEditingFood, isAddFoodModalOpen, isEditFoodModalOpen }}>
             {children}
         </FoodContext.Provider>
     );

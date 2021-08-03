@@ -16,7 +16,7 @@ interface FooterProps {
 }
 
 export function FooterAdmin({ isAvailable, food }: FooterProps) {
-    const { deleteFood, availableFood, openEditModal, setEditingFood } = useFood();
+    const { deleteFood, availableFood, openEditFoodModal, setEditingFood } = useFood();
 
     function handleDeleteFood(id: string) {
         deleteFood(id);
@@ -24,7 +24,7 @@ export function FooterAdmin({ isAvailable, food }: FooterProps) {
 
     function handleEditFood(food: FoodVariable) {
         setEditingFood(food);
-        openEditModal();
+        openEditFoodModal();
     }
 
     function handleAvaliableFood(food: FoodVariable) {
